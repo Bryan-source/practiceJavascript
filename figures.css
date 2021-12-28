@@ -1,0 +1,8 @@
+.hide-validateBase {
+    display: none;
+}
+
+.show-validateBase {
+    display: block;
+    color: red;
+}

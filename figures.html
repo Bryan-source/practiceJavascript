@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./figures.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class ="figure">
+        <div class="header">
+            <h1 class="title">Geometry</h1>
+            <div class="choose">
+                <p class="subtitle">Choose a figure</p>
+                <div>
+                    <!-- Lista de botones -->
+                </div>
+            </div>
+        </div>
+
+        <div class="circle">
+            <p class="subtitle">Circle</p>
+            <form>
+                <label for="radioCircle">Radio</label>
+                <input type="number" id="radioCircle" class="input input-radioCircle">
+                <button type="button" onclick="calcPerimeterCircle()">Calculate Perimeter</button>
+                <button type="button" onclick="calcAreaCircle()">Calculate Area</button>
+            </form>
+
+        </div>
+        <hr>
+        <div class="isoTriangle">
+            <p class="subtitle">Isosceles Triangle</p>
+            <form>
+                <label for="side">Sides</label>
+                <input type="number" id="side" class="input">
+
+                <label for="base">Base</label>
+                <input type="number" id="base" class="input">
+                <span id="validateBase" class="hide-validateBase">La base debe ser menor al valor de los lados y mayor que 0</span>
+
+                <button type="button" onclick="calcTriangleHeight()">Calculate Height</button>
+            </form>
+        </div>
+
+        <div class="results">
+            <p class="subtitle">Results</p>
+            <div class="area-perimeter">
+                <div class="result-detail">
+                    <p>Perimeter</p>
+                    <p id="showPerimeter"></p>
+                </div>
+                <div class="result-detail">
+                    <p>Area</p>
+                    <p id="showArea"></p>
+                </div>
+                <div class="result-detail">
+                    <p>Height</p>
+                    <p id="showHeight"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="./components/figures.js" ></script>
+</body>
+</html>

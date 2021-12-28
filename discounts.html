@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap" rel="stylesheet">
+    <title>Payment</title>
+</head>
+<style>
+    :root {
+
+        /* --white: #FFFFFF;
+        --black: #000000;
+        --dark: #232830;
+        --very-light-pink: #C7C7C7;
+        --text-input-field: #F7F7F7;
+        --hospital-green: #ACD9B2; */
+
+        --text-input-field: #F7F7F7;
+        --very-light-pink: #C7C7C7;
+
+        --sm: 14px;
+        --md: 16px;
+        --lg: 22px;
+    }
+
+    body {
+        font-family: 'Mukta', sans-serif;;
+        margin: 0;
+    }
+
+    .product {
+        display: grid;
+        grid-template-rows: auto 1fr auto auto ;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .product-header  img {
+        width: 100%;
+        height: 320px;
+        border-radius: 0  0 24px 24px;
+        object-fit: cover;
+    }
+
+    .product-info {
+        padding: 0 16px;
+    }
+
+    .title {
+        margin: 0 0 16px;
+    }
+
+    .title-price::before {
+        content: '$ ';
+        font-weight: bold;
+    }
+
+    .subtitle {
+        font-size: var(--md);
+        font-weight: bold;
+        margin: 0 0 8px;
+    }
+
+    .product-info p:nth-child(3) {
+        font-size: var(--sm);
+    }
+
+    .product-footer {
+        padding: 0 16px;
+    }
+
+    .product-footer p {
+        font-size: var(--md);
+        font-weight: bold;
+    }
+
+    .label {
+        display: block;
+        font-size: var(--sm);
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .input {
+        background-color: var(--text-input-field);
+        font-size: var(--sm);
+        padding: 6px;
+        margin-bottom: 12px;
+        border:none;
+        border-radius: 8px;
+        height: 30px;
+    }
+
+    .validateCoupon-success {
+        display: block;
+        color: green;
+    }
+
+    .validateCoupon-showed {
+        display: block;
+        color: red;
+    }
+    .form-inputDiscount {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 16px;
+    }
+
+
+    .btn-secondary {
+        background-color: white;
+        cursor: pointer;
+        border: 1px solid orangered;
+        border-radius: 8px;
+        font-size: var(--md);
+
+        width: 100px;
+        height: 56px;
+    }
+
+    .btn-primary {
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+
+        font-size: var(--md);
+
+        width: 100%;
+        height: 56px;
+        margin: 0 0 16px;
+    }
+
+    @media (min-width:768px){
+        .product {
+            width: 414px;
+        }
+    }
+</style>
+<body>
+    <div class="product">
+        <div class="product-header">
+            <img src="https://es.yamaha.com/es/files/C3_STUDIO_1080_1080_396x396_b3133b3dde0897a6d62816a981688dc6.jpg" alt="">
+        </div>
+        <div class="product-info">
+            <h1 id="price" class="title title-price"></h1>
+            <p class="subtitle">Piano Yamaha</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro sit sequi, aliquid ducimus molestiae cupiditate facere? Id voluptate iste corrupti!</p>
+        </div>
+        <div class="product-footer">
+            <p>Do you have a coupon?</p>
+            <form class="form">
+                <label for="coupon" class="label">Coupon</label>
+                <div class="form-inputDiscount">
+                    <div>
+                        <input type="text" id="coupon" class="input" placeholder="ej: SOLMAYOR">
+                        <span id="validateCoupon"></span>
+                    </div>
+                    <button type="button" class="btn-secondary" onclick="applyDiscount()">Apply Coupon</button>
+                </div>
+            </form>
+            <button class="btn btn-primary">Pay Now</button>
+        </div>
+    </div>
+    <script src="./components/discounts.js"></script>
+</body>
+</html>
