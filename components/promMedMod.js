@@ -54,3 +54,40 @@ function calcMedian(array) {
 
 
 }
+
+/* MODA */
+/* https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects */
+
+const listMod = [2,2,1,5,4,6,1,2,5,1,6,4,2,6,6,5,5,5,5];
+
+function calcModa(array) {
+
+    //Object
+    const repeatedNum = {};
+
+    //element es un callback que hace referencia al valor de cada index del arreglo
+    array.map((element) => {
+
+        /* repeatedNum[element] es lo mismo que repeatedNum.element */
+        if (repeatedNum[element]) {
+            repeatedNum[element] += 1;
+        } else {
+            repeatedNum[element] = 1;
+        }
+    });
+
+    //Convertir el objeto con las repeticiones respectivas de cada número en un arreglo para así poder acceder a las posiciones en imprimir la moda. https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+    const finalArray = Object.entries(repeatedNum);
+    
+    //Ordenar el arreglo de menor a mayor para escoger la última posición que va a representar a la moda.
+    //a[1] - b[1]  representan a la segunda posición de cada fila dentro de la matriz. 
+    finalArray.sort((a, b) => a[1] - b[1]);
+
+    //Me devuelve la última fila columna 0 o primera columna;
+    const moda = finalArray[finalArray.length - 1][0];
+
+    console.log(finalArray);
+    console.log(`Moda: ${moda}`);
+}
+
+calcModa(listMod);
