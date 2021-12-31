@@ -91,3 +91,74 @@ function calcModa(array) {
 }
 
 calcModa(listMod);
+
+
+//MEDIA ARMÓNICA
+//https://www.youtube.com/watch?v=eDfJMKLgqSc
+
+
+const listMod2 = [3,3,6,7,7,7,8,8,8,8,9,9,9,9,9];
+
+function calcHarmonicMean(array) {
+    const myObject = {};
+
+    array.map((element) => {
+        if(myObject[element]) {
+            myObject[element] += 1;
+        } else {
+            myObject[element] = 1;
+        }
+    });
+
+    const matrixData = Object.entries(myObject);
+    
+    const ROWS = matrixData.length;
+    const COLUMNS = 2;
+
+    /*  x: Representa la posición donde se encuentran los valores en la matriz (primera columna)
+        n: Representa la posición donde se encuentran la representación del número de valores (segunda columna)
+
+        x | n
+        3   2   => 3 se repite 2 veces
+        6   1   => 6 una vez
+
+        nNumbers = n1 + n2 ... nr 
+        nNumbers = 2 + 1 = 3
+
+        Media Armónica 
+        nNumbers / (n1/x1 + n2/x2 +...+ nr/xr);
+
+
+    */
+    const x = 0
+    const n = 1
+    
+    let nNumbers = 0;
+
+    //(n1/x1 + n2/x2 +...+ nr/xr)
+    let sumInferior = 0;
+    
+    for (let i = 0; i < ROWS; i++) {
+        for(let j = 0; j < COLUMNS; j++) {
+            
+            if (j === n ) {
+                nNumbers += matrixData[i][j];
+            } else {
+                //n1/x1 ...
+                let divInferior = matrixData[i][n]/matrixData[i][x];
+                sumInferior += divInferior;
+            }
+        }
+    }
+
+    //nNumbers / (n1/x1 + n2/x2 +...+ nr/xr);
+    const medianH = nNumbers/sumInferior;
+    
+    /* console.log(`nNumber: ${nNumbers}`);
+    console.log(`sumInferior: ${sumInferior}`);
+    console.log(matrixData); */
+    console.log(medianH);
+    
+}
+
+calcHarmonicMean(listMod2);
