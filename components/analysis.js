@@ -40,6 +40,17 @@ const salaries = mexico.map((object) => {
     return object.salary
 });
 
-const salariesOrdered = salaries.sort((a, b) => {return a - b});
+const salariesSorted = salaries.sort((a, b) => {return a - b});
 
-console.log(medianGeneral(salariesOrdered));
+//TOP 10
+const topNumber = 10;
+const sliceStart = (salariesSorted.length * (100 - topNumber))/100;
+const sliceEnd = salariesSorted.length;
+
+const topTen = salariesSorted.slice(sliceStart, sliceEnd);
+
+//General Median
+console.log(medianGeneral(salariesSorted));
+//Top 10 Median
+console.log(medianGeneral(topTen));
+
