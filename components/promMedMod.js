@@ -143,7 +143,12 @@ function calcHarmonicMean(array) {
             
             if (j === n ) {
                 nNumbers += matrixData[i][j];
-            } else {
+            } else {  
+
+                /* Esta instrucción va en el else para que no se repita la instrucción cuando j incremente en 1.
+                    Si se repite entonces divInferior vuelve a calcularse y por ende sumaInferior vuelve a sumar 
+                    duplicando el resultado final.
+                */
                 //n1/x1 ...
                 let divInferior = matrixData[i][n]/matrixData[i][x];
                 sumInferior += divInferior;
